@@ -22,7 +22,7 @@ function create(initialState: NormalizedCacheObject) {
     connectToDevTools: isBrowser,
     ssrMode: !isBrowser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: 'TODO', // Server URL (must be absolute)
+      uri: process.env.URI_ENDPOINT, // Server URL (must be absolute)
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {}),

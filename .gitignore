@@ -19,3 +19,8 @@ npm-debug.log
 
 .next
 .build
+.idea
+.vscode
+*.log
+.env*
+
