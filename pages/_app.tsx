@@ -1,7 +1,7 @@
 import App, { Container, AppComponentType } from 'next/app'
 import React from 'react'
 import withApolloClient from '../lib/with-apollo-client'
-import { ApolloProvider } from 'react-apollo'
+import { ApolloProvider as ApolloHooksProvider } from 'react-apollo-hooks'
 import { ApolloClient, NormalizedCacheObject } from 'apollo-boost'
 
 type Props = {
@@ -13,9 +13,9 @@ class MyApp extends App<Props> {
     const { Component, pageProps, apolloClient } = this.props
     return (
       <Container>
-        <ApolloProvider client={apolloClient}>
+        <ApolloHooksProvider client={apolloClient}>
           <Component {...pageProps} />
-        </ApolloProvider>
+        </ApolloHooksProvider>
       </Container>
     )
   }

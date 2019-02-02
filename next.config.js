@@ -17,6 +17,7 @@ module.exports = withTypescript({
       // Read the .env file
       new Dotenv({
         path: path.join(__dirname, envFile),
+        safe: true,
         systemvars: true,
       }),
     ]

@@ -1,7 +1,8 @@
 import React from 'react'
+import { renderToString } from 'react-dom/server'
 import initApollo from './init-apollo'
 import Head from 'next/head'
-import { getDataFromTree } from 'react-apollo'
+import { getMarkupFromTree } from 'react-apollo-hooks'
 import { NormalizedCacheObject } from 'apollo-boost'
 import NextApp, { NextAppContext, AppProps, DefaultAppIProps } from 'next/app'
 
@@ -32,14 +33,17 @@ export default (App: typeof NextApp) => {
       if (!isBrowser) {
         try {
           // Run all GraphQL queries
-          await getDataFromTree(
-            <App
-              {...appProps}
-              Component={Component}
-              router={router}
-              apolloClient={apollo}
-            />,
-          )
+          await getMarkupFromTree({
+            renderFunction: renderToString,
+            tree: (
+              <App
+                {...appProps}
+                Component={Component}
+                router={router}
+                apolloClient={apollo}
+              />
+            ),
+          })
         } catch (error) {
           // Prevent Apollo Client GraphQL errors from crashing SSR.
           // Handle them in components via the data.error prop:

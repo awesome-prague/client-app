@@ -1,7 +1,7 @@
 module.exports = {
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  setupFiles: ['<rootDir>/jest.setup.js'],
   transform: {
+    '\\.(gql|graphql)$': 'jest-transform-graphql',
     '^.+\\.tsx?$': 'ts-jest',
   },
   testRegex: '(/tests/.*|(\\.|/)(test|spec))\\.(jsx?|js?|tsx?|ts?)$',
@@ -9,6 +9,7 @@ module.exports = {
   globals: {
     'ts-jest': {
       tsConfig: 'tsconfig.json',
+      diagnostics: false,
     },
   },
 }

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "gen": "gql-gen --config codegen.yml"
   },
   "dependencies": {
     "apollo-boost": "^0.1.27",
@@ -15,29 +16,37 @@
     "graphql-tag": "^2.10.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^7.0.2",
-    "react": "^16.7.0",
+    "react": "^16.8.0-alpha.1",
     "react-apollo": "^2.4.0",
-    "react-dom": "^16.7.0"
+    "react-apollo-hooks": "^0.3.1",
+    "react-dom": "^16.8.0-alpha.1"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.15",
-    "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/jest": "^23.3.13",
     "@types/next": "^7.0.2",
     "@types/react": "^16.4.16",
     "@types/react-dom": "16.0.8",
     "@zeit/next-typescript": "^1.1.1",
+    "apollo-link-mock": "^1.0.1",
+    "babel-plugin-import-graphql": "^2.6.2",
     "babel-plugin-inline-react-svg": "^1.0.1",
     "dotenv-webpack": "^1.7.0",
-    "enzyme": "^3.8.0",
-    "enzyme-adapter-react-16": "^1.8.0",
     "eslint": "^5.12.0",
+    "graphql-code-generator": "^0.16.0",
+    "graphql-codegen-fragment-matcher": "0.16.0",
+    "graphql-codegen-typescript-client": "0.16.0",
+    "graphql-codegen-typescript-common": "0.16.0",
+    "graphql-codegen-typescript-react-apollo": "^0.16.0",
     "jest": "^23.6.0",
+    "jest-dom": "^3.0.1",
+    "jest-transform-graphql": "^2.1.0",
+    "react-testing-library": "^5.4.4",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.1",
     "tslint-config-prettier": "^1.17.0",
     "tslint-react": "^3.6.0",
-    "typescript": "3.2.1"
+    "typescript": "3.2.1",
+    "waait": "^1.0.4"
   },
   "license": "MIT"
 }
