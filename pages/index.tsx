@@ -6,7 +6,7 @@ import { Posts } from '../lib/generated/types'
 import { Query } from '../lib/types'
 
 // NOTE: TS magic https://github.com/apollographql/graphql-tag/issues/59#issuecomment-316991007
-import * as postQuery from '../lib/graphql/posts.graphql'
+import postQuery from '../lib/graphql/posts.graphql'
 
 const index: React.FunctionComponent = () => {
   const { data, loading, error }: Query<Posts.Query> = useQuery(postQuery, {
