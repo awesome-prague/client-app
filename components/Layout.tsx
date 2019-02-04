@@ -11,6 +11,17 @@ const Layout: React.FunctionComponent<Props> = ({
   title = 'This is the default title',
 }) => (
   <div>
+    <style jsx global>{`
+      @font-face {
+        font-family: opensans;
+        src: url('../static/OpenSans-Regular.ttf');
+      }
+      html,
+      body {
+        margin: 0;
+        font-family: opensans;
+      }
+    `}</style>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
