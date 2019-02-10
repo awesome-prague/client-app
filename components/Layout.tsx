@@ -1,6 +1,13 @@
-import * as React from 'react'
+import React from 'react'
 import Head from 'next/head'
+import { Global } from '@emotion/core'
+
+import reset from '../static/css/reset'
+import fontFace from '../static/css/font-face'
+import global from '../static/css/global'
+
 import Header from './Header'
+import SearchBar from './SearchBar'
 
 type Props = {
   title?: string
@@ -8,31 +15,18 @@ type Props = {
 
 const Layout: React.FunctionComponent<Props> = ({
   children,
-  title = 'This is the default title',
+  title = 'Awesome Prague',
 }) => (
   <div>
-    <style jsx global>{`
-      @font-face {
-        font-family: opensans;
-        src: url('../static/OpenSans-Regular.ttf');
-      }
-      html,
-      body {
-        margin: 0;
-        font-family: opensans;
-      }
-    `}</style>
+    <Global styles={[reset, fontFace, global]} />
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <Header />
+    <Header title={title} />
+    <SearchBar />
     {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
   </div>
 )
 

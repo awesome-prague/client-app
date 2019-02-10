@@ -10,5 +10,5 @@ afterEach(cleanup)
 it('should render', async () => {
   const { container } = render(<Layout title="A sample title" />)
 
-  expect(getByText(container, /I'm here to stay/i)).toBeInTheDocument()
+  expect(getByText(container, /A sample title/i)).toBeInTheDocument()
 })

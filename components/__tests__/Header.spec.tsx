@@ -7,7 +7,7 @@ import Header from '../Header'
 afterEach(cleanup)
 
 it('should render', () => {
-  const { container } = render(<Header />)
+  const { container } = render(<Header title={'Testing title'} />)
 
-  expect(getByText(container, /Awesome prague/i)).toBeInTheDocument()
+  expect(getByText(container, /Testing title/i)).toBeInTheDocument()
 })

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Link from 'next/link'
 import Layout from '../components/Layout'
+
 import { useQuery } from 'react-apollo-hooks'
 import { Posts } from '../lib/generated/types'
 import { Query } from '../lib/types'
@@ -16,7 +17,7 @@ const index: React.FunctionComponent = () => {
   if (loading) return <div>Loading...</div>
 
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title={process.env.SITE_NAME}>
       <h1>Hello Next.js 👋</h1>
       {data &&
         data.posts.map(post => (
