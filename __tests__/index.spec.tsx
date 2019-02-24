@@ -49,8 +49,7 @@ it('should render posts', async () => {
   // are solved:
   // https://github.com/kentcdodds/react-testing-library/pull/216
   // https://github.com/facebook/react/issues/14050
-  // render(null as any)
-  // await wait(0)
+  render(null as any)
   act(() => {
     jest.advanceTimersByTime(0)
   })

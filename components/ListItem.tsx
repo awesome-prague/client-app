@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import * as React from 'react'
+import React from 'react'
 
 import { DataObject } from './List'
 import ListThumbnail from './ListThumbnail'

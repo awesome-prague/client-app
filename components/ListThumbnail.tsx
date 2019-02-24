@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import * as React from 'react'
+import React from 'react'
 import {
   POST_THUMBNAIL_HEIGHT,
-  POST_THUMBNAIL,
   POST_THUMBNAIL_BORDER_RADIUS,
 } from '../lib/constants'
+import { POST_THUMBNAIL } from '../lib/utils'
 
 interface Props {
   src: string

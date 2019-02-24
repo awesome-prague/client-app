@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import * as React from 'react'
+import React from 'react'
 import {
   DESCRIPTION_HEIGHT,
   POST_TITLE_COLOR,
