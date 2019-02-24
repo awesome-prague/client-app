@@ -1,23 +1,37 @@
-import * as React from "react"
+import * as React from 'react'
 import ListItem from './ListItem'
 
 export interface DataObject {
-    id: number,
-    name: string
+  id: number
+  title: string
+  description: string
 }
 
-const List : React.FunctionComponent = () => {
-    const dataArray : DataObject[] =
-        [{id: 101, name: 'larry'}, {id: 102, name: 'sam'}, {id: 103, name: 'jill'}]
-    return (
-        <ul>
-            {dataArray.map(item => (
-                <li key={item.id}>
-                    <ListItem data={item}/>
-                </li>
-            ))}
-        </ul>
-    )
+const List: React.FunctionComponent = () => {
+  const dataArray: DataObject[] = [
+    {
+      id: 101,
+      title: 'Dish burger bistro',
+      description: 'A really nice bistro, amazing burgers and beer…',
+    },
+    {
+      id: 102,
+      title: 'Dish burger bistro',
+      description: 'A really nice bistro, amazing burgers and beer…',
+    },
+    {
+      id: 103,
+      title: 'Dish burger bistro',
+      description: 'A really nice bistro, amazing burgers and beer…',
+    },
+  ]
+  return (
+    <div>
+      {dataArray.map(item => (
+        <ListItem data={item} key={item.id} />
+      ))}
+    </div>
+  )
 }
 
-export default List;
+export default List

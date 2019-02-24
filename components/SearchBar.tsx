@@ -10,7 +10,7 @@ import ShowMapButton from './ShowMapButton'
 
 const style = css({
   height: SEARCH_BAR_HEIGHT,
-  padding: `${MAIN_PADDING_2}`,
+  padding: MAIN_PADDING_2,
   boxShadow: '0 3px 6px rgba(0, 0, 0, 0.16)',
 })
 
