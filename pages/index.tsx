@@ -1,6 +1,8 @@
-import * as React from 'react'
+import React from 'react'
 import Link from 'next/link'
+
 import Layout from '../components/Layout'
+import List from '../components/List'
 
 import { useQuery } from 'react-apollo-hooks'
 import { Posts } from '../lib/generated/types'
@@ -25,6 +27,7 @@ const index: React.FunctionComponent = () => {
             {post.title}
           </div>
         ))}
+      <List />
       <p>
         <Link href="/about">
           <a>About</a>

@@ -4,8 +4,7 @@ import { MockLink } from 'apollo-link-mock'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo-hooks'
-import { cleanup, render, getByText } from 'react-testing-library'
-import wait from 'waait'
+import { cleanup, render, getByText, act } from 'react-testing-library'
 
 import 'jest-dom/extend-expect'
 
@@ -35,6 +34,8 @@ function createClient(mocks: MockedResponse[]) {
 afterEach(cleanup)
 
 it('should render posts', async () => {
+  jest.useFakeTimers()
+
   const client = createClient(mocks)
   const { container } = render(
     <ApolloProvider client={client}>
@@ -49,7 +50,9 @@ it('should render posts', async () => {
   // https://github.com/kentcdodds/react-testing-library/pull/216
   // https://github.com/facebook/react/issues/14050
   render(null as any)
-  await wait(0)
+  act(() => {
+    jest.advanceTimersByTime(0)
+  })
 
   expect(container.textContent).toContain('Hello Next.js')
   expect(getByText(container, 'A test post')).toBeTruthy()
