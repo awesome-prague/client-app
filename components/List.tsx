@@ -1,35 +1,28 @@
 import React from 'react'
 import ListItem from './ListItem'
+import { useQuery } from 'react-apollo-hooks'
 
-export interface DataObject {
-  id: number
-  title: string
-  description: string
-}
+import { TopPicks } from '../lib/generated/types'
+import query from '../lib/graphql/toppicks.graphql'
 
 const List: React.FunctionComponent = () => {
-  const dataArray: DataObject[] = [
+  const { data, error, loading } = useQuery<TopPicks.Query, TopPicks.Variables>(
+    query,
     {
-      id: 101,
-      title: 'Dish burger bistro',
-      description: 'A really nice bistro, amazing burgers and beer…',
+      suspend: false,
+      variables: {
+        topPostsCount: 1,
+      },
     },
-    {
-      id: 102,
-      title: 'Dish burger bistro',
-      description: 'A really nice bistro, amazing burgers and beer…',
-    },
-    {
-      id: 103,
-      title: 'Dish burger bistro',
-      description: 'A really nice bistro, amazing burgers and beer…',
-    },
-  ]
+  )
+
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>{error}</div>
+
   return (
     <div>
-      {dataArray.map(item => (
-        <ListItem data={item} key={item.id} />
-      ))}
+      {data &&
+        data.topPicks.map(item => <ListItem data={item} key={item.id} />)}
     </div>
   )
 }

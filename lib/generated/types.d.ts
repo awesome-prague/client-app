@@ -519,6 +519,22 @@ export interface PostWhereInput {
 
   thumbnail_not_ends_with?: Maybe<string>
 
+  positiveCount?: Maybe<number>
+
+  positiveCount_not?: Maybe<number>
+
+  positiveCount_in?: Maybe<number[]>
+
+  positiveCount_not_in?: Maybe<number[]>
+
+  positiveCount_lt?: Maybe<number>
+
+  positiveCount_lte?: Maybe<number>
+
+  positiveCount_gt?: Maybe<number>
+
+  positiveCount_gte?: Maybe<number>
+
   AND?: Maybe<PostWhereInput[]>
 
   OR?: Maybe<PostWhereInput[]>
@@ -797,6 +813,8 @@ export enum PostOrderByInput {
   TextDesc = 'text_DESC',
   ThumbnailAsc = 'thumbnail_ASC',
   ThumbnailDesc = 'thumbnail_DESC',
+  PositiveCountAsc = 'positiveCount_ASC',
+  PositiveCountDesc = 'positiveCount_DESC',
 }
 
 export type DateTime = any
@@ -818,6 +836,30 @@ export namespace Posts {
     __typename?: 'Post'
 
     title: string
+  }
+}
+
+export namespace TopPicks {
+  export type Variables = {
+    topPostsCount: number
+  }
+
+  export type Query = {
+    __typename?: 'Query'
+
+    topPicks: TopPicks[]
+  }
+
+  export type TopPicks = {
+    __typename?: 'Post'
+
+    id: string
+
+    title: string
+
+    text: string
+
+    thumbnail: Maybe<string>
   }
 }
 

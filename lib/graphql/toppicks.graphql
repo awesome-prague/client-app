@@ -1,0 +1,8 @@
+query TopPicks($topPostsCount: Int!) {
+  topPicks(topPostsCount: $topPostsCount) {
+    id
+    title
+    text
+    thumbnail
+  }
+}
