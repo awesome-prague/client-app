@@ -2,7 +2,6 @@
 import { jsx, css } from '@emotion/core'
 import React from 'react'
 
-import { DataObject } from './List'
 import ListThumbnail from './ListThumbnail'
 import ListDescription from './ListDescription'
 import {
@@ -10,9 +9,10 @@ import {
   POST_BORDER_RADIUS,
   MAIN_PADDING_1,
 } from '../lib/constants'
+import { TopPicks } from '../lib/generated/types'
 
 export interface Props {
-  data: DataObject
+  data: TopPicks.TopPicks
 }
 
 const postHolder = css({
@@ -22,11 +22,11 @@ const postHolder = css({
 })
 
 const ListItem: React.FunctionComponent<Props> = ({
-  data: { title, description },
+  data: { title, text, thumbnail },
 }) => (
   <div css={postHolder}>
-    <ListThumbnail src="../static/img/fixtures/svic.jpg" />
-    <ListDescription title={title} description={description} />
+    <ListThumbnail src={thumbnail!} />
+    <ListDescription title={title} description={text} />
   </div>
 )
 
