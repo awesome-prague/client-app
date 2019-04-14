@@ -35,7 +35,12 @@ const searchIconStyle = css({
   opacity: 0.5,
 })
 
-const SearchInput: React.FunctionComponent = () => {
+type Props = {
+  value: string
+  onChange: (value: string) => void
+}
+
+const SearchInput: React.FunctionComponent<Props> = ({ value, onChange }) => {
   return (
     <ItemsCenter style={style}>
       <SearchIcon css={searchIconStyle} size={22} />
@@ -44,6 +49,8 @@ const SearchInput: React.FunctionComponent = () => {
         className="flexbox flex"
         placeholder="Search an awesome place"
         type="text"
+        value={value}
+        onChange={e => onChange(e.target.value)}
       />
     </ItemsCenter>
   )

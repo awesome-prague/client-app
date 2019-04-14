@@ -1,0 +1,16 @@
+query Search($value: String!) {
+  search(value: $value) {
+    posts {
+      id
+      title
+    }
+    subCategories {
+      id
+      title
+    }
+    categories {
+      id
+      title
+    }
+  }
+}

@@ -3,8 +3,10 @@ export const HEADER_BORDER = '0, 0, 0'
 export const LOGO_HEIGHT = 52
 
 export const MAIN_THEME_COLOR = '255, 108, 171'
+export const SECONDARY_THEME_COLOR = '255, 255, 255'
 export const MAIN_PADDING_1 = '1rem'
 export const MAIN_PADDING_2 = '0.5rem'
+export const MAIN_PADDING_3 = '0.25rem'
 
 export const SEARCH_BAR_HEIGHT = '45px'
 

@@ -393,34 +393,6 @@ export interface PostWhereInput {
 
   isPublished_not?: Maybe<boolean>
 
-  slug?: Maybe<string>
-
-  slug_not?: Maybe<string>
-
-  slug_in?: Maybe<string[]>
-
-  slug_not_in?: Maybe<string[]>
-
-  slug_lt?: Maybe<string>
-
-  slug_lte?: Maybe<string>
-
-  slug_gt?: Maybe<string>
-
-  slug_gte?: Maybe<string>
-
-  slug_contains?: Maybe<string>
-
-  slug_not_contains?: Maybe<string>
-
-  slug_starts_with?: Maybe<string>
-
-  slug_not_starts_with?: Maybe<string>
-
-  slug_ends_with?: Maybe<string>
-
-  slug_not_ends_with?: Maybe<string>
-
   title?: Maybe<string>
 
   title_not?: Maybe<string>
@@ -448,6 +420,34 @@ export interface PostWhereInput {
   title_ends_with?: Maybe<string>
 
   title_not_ends_with?: Maybe<string>
+
+  normalizeTitle?: Maybe<string>
+
+  normalizeTitle_not?: Maybe<string>
+
+  normalizeTitle_in?: Maybe<string[]>
+
+  normalizeTitle_not_in?: Maybe<string[]>
+
+  normalizeTitle_lt?: Maybe<string>
+
+  normalizeTitle_lte?: Maybe<string>
+
+  normalizeTitle_gt?: Maybe<string>
+
+  normalizeTitle_gte?: Maybe<string>
+
+  normalizeTitle_contains?: Maybe<string>
+
+  normalizeTitle_not_contains?: Maybe<string>
+
+  normalizeTitle_starts_with?: Maybe<string>
+
+  normalizeTitle_not_starts_with?: Maybe<string>
+
+  normalizeTitle_ends_with?: Maybe<string>
+
+  normalizeTitle_not_ends_with?: Maybe<string>
 
   text?: Maybe<string>
 
@@ -615,6 +615,34 @@ export interface SubCategoryWhereInput {
 
   title_not_ends_with?: Maybe<string>
 
+  normalizeTitle?: Maybe<string>
+
+  normalizeTitle_not?: Maybe<string>
+
+  normalizeTitle_in?: Maybe<string[]>
+
+  normalizeTitle_not_in?: Maybe<string[]>
+
+  normalizeTitle_lt?: Maybe<string>
+
+  normalizeTitle_lte?: Maybe<string>
+
+  normalizeTitle_gt?: Maybe<string>
+
+  normalizeTitle_gte?: Maybe<string>
+
+  normalizeTitle_contains?: Maybe<string>
+
+  normalizeTitle_not_contains?: Maybe<string>
+
+  normalizeTitle_starts_with?: Maybe<string>
+
+  normalizeTitle_not_starts_with?: Maybe<string>
+
+  normalizeTitle_ends_with?: Maybe<string>
+
+  normalizeTitle_not_ends_with?: Maybe<string>
+
   categories_every?: Maybe<CategoryWhereInput>
 
   categories_some?: Maybe<CategoryWhereInput>
@@ -723,6 +751,34 @@ export interface CategoryWhereInput {
 
   title_not_ends_with?: Maybe<string>
 
+  normalizeTitle?: Maybe<string>
+
+  normalizeTitle_not?: Maybe<string>
+
+  normalizeTitle_in?: Maybe<string[]>
+
+  normalizeTitle_not_in?: Maybe<string[]>
+
+  normalizeTitle_lt?: Maybe<string>
+
+  normalizeTitle_lte?: Maybe<string>
+
+  normalizeTitle_gt?: Maybe<string>
+
+  normalizeTitle_gte?: Maybe<string>
+
+  normalizeTitle_contains?: Maybe<string>
+
+  normalizeTitle_not_contains?: Maybe<string>
+
+  normalizeTitle_starts_with?: Maybe<string>
+
+  normalizeTitle_not_starts_with?: Maybe<string>
+
+  normalizeTitle_ends_with?: Maybe<string>
+
+  normalizeTitle_not_ends_with?: Maybe<string>
+
   subCategories_every?: Maybe<SubCategoryWhereInput>
 
   subCategories_some?: Maybe<SubCategoryWhereInput>
@@ -767,6 +823,8 @@ export enum SubCategoryOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
+  NormalizeTitleAsc = 'normalizeTitle_ASC',
+  NormalizeTitleDesc = 'normalizeTitle_DESC',
 }
 
 export enum CategoryOrderByInput {
@@ -778,6 +836,8 @@ export enum CategoryOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
+  NormalizeTitleAsc = 'normalizeTitle_ASC',
+  NormalizeTitleDesc = 'normalizeTitle_DESC',
 }
 
 export enum PostOrderByInput {
@@ -789,10 +849,10 @@ export enum PostOrderByInput {
   UpdatedAtDesc = 'updatedAt_DESC',
   IsPublishedAsc = 'isPublished_ASC',
   IsPublishedDesc = 'isPublished_DESC',
-  SlugAsc = 'slug_ASC',
-  SlugDesc = 'slug_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
+  NormalizeTitleAsc = 'normalizeTitle_ASC',
+  NormalizeTitleDesc = 'normalizeTitle_DESC',
   TextAsc = 'text_ASC',
   TextDesc = 'text_DESC',
   ThumbnailAsc = 'thumbnail_ASC',
@@ -816,6 +876,72 @@ export namespace Posts {
 
   export type Posts = {
     __typename?: 'Post'
+
+    id: string
+
+    title: string
+  }
+}
+
+export namespace Search {
+  export type Variables = {
+    value: string
+  }
+
+  export type Query = {
+    __typename?: 'Query'
+
+    search: Maybe<Search>
+  }
+
+  export type Search = {
+    __typename?: 'SearchResults'
+
+    posts: (Maybe<Posts>)[]
+
+    subCategories: (Maybe<SubCategories>)[]
+
+    categories: (Maybe<Categories>)[]
+  }
+
+  export type Posts = {
+    __typename?: 'Post'
+
+    id: string
+
+    title: string
+  }
+
+  export type SubCategories = {
+    __typename?: 'SubCategory'
+
+    id: string
+
+    title: string
+  }
+
+  export type Categories = {
+    __typename?: 'Category'
+
+    id: string
+
+    title: string
+  }
+}
+
+export namespace SubCategories {
+  export type Variables = {}
+
+  export type Query = {
+    __typename?: 'Query'
+
+    subCategories: SubCategories[]
+  }
+
+  export type SubCategories = {
+    __typename?: 'SubCategory'
+
+    id: string
 
     title: string
   }
